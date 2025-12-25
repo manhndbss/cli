@@ -31,6 +31,7 @@ import {Token, renderConfirmationPrompt, renderInfo, renderWarning} from '@shopi
 import {AbortError} from '@shopify/cli-kit/node/error'
 import {outputContent} from '@shopify/cli-kit/node/output'
 import {basename, sniffForJson} from '@shopify/cli-kit/node/path'
+import { ensureXpifyDev } from '@xpify/buildpack'
 
 export const InvalidApiKeyErrorMessage = (apiKey: string) => {
   return {
@@ -162,6 +163,8 @@ export async function ensureDeployContext(options: DeployOptions): Promise<Ensur
     includeConfigOnDeploy,
     messages: [resetHelpMessage],
   })
+
+  await ensureXpifyDev({localApp: app, remoteApp})
 
   const identifiers = await ensureDeploymentIdsPresence({
     app,

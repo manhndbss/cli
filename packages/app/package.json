@@ -59,6 +59,7 @@
     "@shopify/theme-check-node": "3.23.0",
     "@shopify/toml-patch": "0.3.0",
     "body-parser": "1.20.3",
+    "@xpify/buildpack": "file:../../../@xpify/buildpack",
     "camelcase-keys": "9.1.3",
     "chokidar": "3.6.0",
     "diff": "5.2.0",
